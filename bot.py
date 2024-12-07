@@ -14,38 +14,37 @@ dp = Dispatcher()
 
 start_keyboard = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton("Игра")],
-        [KeyboardButton("Наши новости")]
+        [KeyboardButton(text="Игра")],
+        [KeyboardButton(text="Наши новости")]
     ],
     resize_keyboard=True
 )
 
 game_keyboard = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton("Камен, ножницы, бумага")],
-        [KeyboardButton("Рандомайзер")]
+        [KeyboardButton(text="Камень, ножницы, бумага")],
+        [KeyboardButton(text="Рандомайзер")]
     ],
     resize_keyboard=True
 )
 
 keyboard_ingame = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton("Камень")],
-        [KeyboardButton("Ножницы")],
-        [KeyboardButton("Бумага")]
+        [KeyboardButton(text="Камень")],
+        [KeyboardButton(text="Ножницы")],
+        [KeyboardButton(text="Бумага")]
     ],
     resize_keyboard=True
 )
 
 news_keyboard = ReplyKeyboardMarkup(
     keyboard=[
-        [KeyboardButton("О нас")],
-        [KeyboardButton("Адрес")],
-        [KeyboardButton("Наши курсы")]
+        [KeyboardButton(text="О нас")],
+        [KeyboardButton(text="Адрес")],
+        [KeyboardButton(text="Наши курсы")]
     ],
     resize_keyboard=True
 )
-
 
 @dp.message(Command("start"))
 async def start(message: types.Message):
@@ -59,7 +58,7 @@ async def game(message: types.Message):
 async def news(message: types.Message):
     await message.answer("Выберите раздел новостей:", reply_markup=news_keyboard)
 
-@dp.message(lambda message: message.text == "Камен, ножницы, бумага")
+@dp.message(lambda message: message.text == "Камень, ножницы, бумага")
 async def rps(message: types.Message):
     await message.answer("Выберите камень, ножницы или бумагу:", reply_markup=keyboard_ingame)
 
