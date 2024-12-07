@@ -68,7 +68,7 @@ async def play_rps(message: types.Message):
     user_choice = message.text
     bot_choice = random.choice(["Камень", "Ножницы", "Бумага"])
 
-    result = determine_keyboard_ingame(user_choice, bot_choice)
+    result = dirty_keyboard_ingame(user_choice, bot_choice)
 
     await message.answer(f"Вы выбрали: {user_choice}\nБот выбрал: {bot_choice}\n{result}")
 
@@ -89,7 +89,7 @@ async def address(message: types.Message):
 async def courses(message: types.Message):
     await message.answer("Наши курсы лучше всех, записывайтесь все")
 
-def determine_keyboard_ingame(user_choice, bot_choice):
+def dirty_keyboard_ingame(user_choice, bot_choice):
     if user_choice == bot_choice:
         return "Ничья!"
     elif (user_choice == "Камень" and bot_choice == "Ножницы") or \
