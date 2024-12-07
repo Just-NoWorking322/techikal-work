@@ -77,6 +77,28 @@ async def randomizer(message: types.Message):
     result = random.choice(["Вы победили!", "Вы проиграли!", "Ничья"])
     await message.answer(result)
 
+@dp.message(lambda message: message.text == "О нас")
+async def about_us(message: types.Message):
+    await message.answer("")
+
+@dp.message(lambda message: message.text == "Адрес")
+async def address(message: types.Message):
+    await message.answer("Наш адрес: здание Томирис, Подвал где то рядом с мерией")
+
+@dp.message(lambda message: message.text == "Наши курсы")
+async def courses(message: types.Message):
+    await message.answer("Наши курсы лучше всех, записывайтесь все")
+
+def determine_keyboard_ingame(user_choice, bot_choice):
+    if user_choice == bot_choice:
+        return "Ничья!"
+    elif (user_choice == "Камень" and bot_choice == "Ножницы") or \
+         (user_choice == "Ножницы" and bot_choice == "Бумага") or \
+         (user_choice == "Бумага" and bot_choice == "Камень"):
+        return "Вы победили!"
+    else:
+        return "Вы проиграли!"
+
 async def on_start():
     await dp.start_polling(bot)
 
