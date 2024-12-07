@@ -46,6 +46,19 @@ news_keyboard = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
+
+@dp.message(Command("start"))
+async def start(message: types.Message):
+    await message.answer("Добро пожаловать! Выберите одну из опций:", reply_markup=start_keyboard)
+
+@dp.message(lambda message: message.text == "Игра")
+async def game(message: types.Message):
+    await message.answer("Выберите игру:", reply_markup=game_keyboard)
+
+@dp.message(lambda message: message.text == "Наши новости")
+async def news(message: types.Message):
+    await message.answer("Выберите раздел новостей:", reply_markup=news_keyboard)
+
 async def on_start():
     await dp.start_polling(bot)
 
