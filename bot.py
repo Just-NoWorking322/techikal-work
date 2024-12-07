@@ -78,15 +78,17 @@ async def randomizer(message: types.Message):
 
 @dp.message(lambda message: message.text == "О нас")
 async def about_us(message: types.Message):
-    await message.answer("")
+    await message.answer("""Международная IT-академия Geeks (Гикс) была основана Fullstack-разработчиком Айдаром Бакировым
+                         и Android-разработчиком Нургазы Сулаймановым в 2018 году в Бишкеке с целью дать возможность каждому человеку,
+                         даже без опыта в технологиях, гарантированно освоить IT-профессию.""")
 
 @dp.message(lambda message: message.text == "Адрес")
 async def address(message: types.Message):
-    await message.answer("Наш адрес: здание Томирис, Подвал где то рядом с мерией")
+    await message.answer("Наш адрес: Ош ул. Мырзалы Аматова 1Б, БЦ Томирис, цокольный этаж (здание Визион)")
 
 @dp.message(lambda message: message.text == "Наши курсы")
 async def courses(message: types.Message):
-    await message.answer("Наши курсы лучше всех, записывайтесь все")
+    await message.answer("САМЫЕ ВОСТРЕБОВАННЫЕ IT-КУРСЫ В КЫРГЫЗСТАНЕ: SMM PRO 1С, программирование, Data science & machine learning, Graphic design and motion,Тестировщик ПОМы постоянно исследуем рынок труда в поиске самых популярных и перспективных IT-направлений")
 
 def dirty_keyboard_ingame(user_choice, bot_choice):
     if user_choice == bot_choice:
