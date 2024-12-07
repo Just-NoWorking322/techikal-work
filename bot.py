@@ -2,8 +2,7 @@ import random
 from aiogram import Bot, Dispatcher, types
 import asyncio
 import logging
-
-TOKEN = "YOUR_BOT_TOKEN"
+from config import TOKEN
 
 logging.basicConfig(level=logging.INFO)
 
